@@ -24,16 +24,16 @@ void Paramedic::attack_or_cure (std::vector<std::vector<Soldier*>> board,std::pa
                 if(s)
                 if(s->player_number==this->player_number) {
                     //this soldier is next to the Paramedic
-                    std::cout << "in attack" << std::endl;
+                   // std::cout << "in attack" << std::endl;
                     s->initial_health_points = s->its_max_health_points;
-                    std::cout << "in2 attack" << std::endl;
+                   // std::cout << "in2 attack" << std::endl;
                 }
 
             }
         }
 
     }
-    std::cout << "ecd of" << std::endl;
+    //std::cout << "ecd of" << std::endl;
 
 
 

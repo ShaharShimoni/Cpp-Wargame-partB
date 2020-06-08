@@ -29,6 +29,8 @@ class Board {
     // operator for reading which soldiers are on the game-board.
     Soldier* operator[](std::pair<int,int> location) const;
 
+    void printboard();
+
     std::pair<int,int> actual_move(uint player_number, std::pair<int,int> source, MoveDIR direction);
     
     // The function "move" tries to move the soldier of player "player"

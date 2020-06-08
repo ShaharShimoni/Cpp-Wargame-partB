@@ -4,6 +4,7 @@
 #include <cmath>
 #include "FootSoldier.hpp"
 #include "FootCommander.hpp"
+#include <iostream>
 
 
 Soldier* FootCommander::copy(int player_number){
@@ -34,7 +35,8 @@ void  FootCommander::attack_or_cure (std::vector<std::vector<Soldier*>> board,st
             s=board[i][j];
 
             bool b = (dynamic_cast<FootSoldier*>(s) != nullptr);
-            if(b && s->father==1){   //Checks if each soldier is a paramedic
+            if(b && s->father==1 && s->player_number==this->player_number){   //Checks if each soldier is a paramedic
+               // std::cout<<"sending to foot "<<s->player_number<<s->initial_health_points<<std::endl;
                 std::pair<int,int> source_of_a_Foot=std::pair<int,int>(i,j);
                 s-> attack_or_cure( board,source_of_a_Foot);
             }

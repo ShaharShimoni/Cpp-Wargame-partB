@@ -7,6 +7,7 @@ using namespace std;
 //#include "Sniper.hpp"
 
 
+
 Soldier* SniperCommander::copy(int player_number){
     Soldier *temp=new SniperCommander(player_number);
     temp->initial_health_points=this->initial_health_points;
@@ -16,7 +17,7 @@ Soldier* SniperCommander::copy(int player_number){
 }
     void  SniperCommander::attack_or_cure (std::vector<std::vector<Soldier*>> board,std::pair<int,int> source) {
 
-    cout<<"in sniper commander"<<endl;
+    //cout<<"in sniper commander"<<endl;
       //  std::pair<int, int> placeSniper = source;
 //        int max=0;
 //        Soldier *s;  //save the max one
@@ -38,7 +39,7 @@ Soldier* SniperCommander::copy(int player_number){
                 s=board[i][j];
 
                 bool b = (dynamic_cast<Sniper*>(s) != nullptr);
-                if(b && s->father==1){   //Checks if each soldier is a paramedic
+                if(b && s->father==1 && s->player_number==this->player_number){   //Checks if each soldier is a paramedic
                     std::pair<int,int> source_of_a_Sniper=std::pair<int,int>(i,j);
                     s->attack_or_cure( board,source_of_a_Sniper);
                 }
